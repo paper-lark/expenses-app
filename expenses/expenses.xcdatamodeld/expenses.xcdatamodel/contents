@@ -1,4 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Account" representedClassName="Account" syncable="YES" codeGenerationType="class">
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isDefault" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="title" attributeType="String"/>
+        <attribute name="typeValue" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="creditTransactions" toMany="YES" deletionRule="Nullify" destinationEntity="Transaction" inverseName="creditAccount" inverseEntity="Transaction"/>
+        <relationship name="debitTransactions" toMany="YES" deletionRule="Nullify" destinationEntity="Transaction" inverseName="debitAccount" inverseEntity="Transaction"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+            <uniquenessConstraint>
+                <constraint value="title"/>
+                <constraint value="typeValue"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="Transaction" representedClassName="Transaction" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="ts" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="creditAccount" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="creditTransactions" inverseEntity="Account"/>
+        <relationship name="debitAccount" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="debitTransactions" inverseEntity="Account"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <elements>
+        <element name="Account" positionX="-36" positionY="9" width="128" height="133"/>
+        <element name="Transaction" positionX="0" positionY="54" width="128" height="118"/>
+    </elements>
 </model>

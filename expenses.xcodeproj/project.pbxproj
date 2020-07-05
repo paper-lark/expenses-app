@@ -16,6 +16,17 @@
 		B408B9F224B2195B0047E792 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B408B9F024B2195B0047E792 /* LaunchScreen.storyboard */; };
 		B408B9FD24B2195B0047E792 /* expensesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408B9FC24B2195B0047E792 /* expensesTests.swift */; };
 		B408BA0824B2195C0047E792 /* expensesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408BA0724B2195C0047E792 /* expensesUITests.swift */; };
+		B408BA2124B222B80047E792 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408BA2024B222B80047E792 /* AppSettings.swift */; };
+		B408BA2C24B226580047E792 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408BA2824B226580047E792 /* Account.swift */; };
+		B408BA3224B229E30047E792 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408BA3124B229E30047E792 /* Transaction.swift */; };
+		B408BA3424B22CB10047E792 /* AccountRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408BA3324B22CB10047E792 /* AccountRowView.swift */; };
+		B408BA3624B22DBC0047E792 /* TextFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408BA3524B22DBC0047E792 /* TextFormatter.swift */; };
+		B408BA3824B230CA0047E792 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408BA3724B230CA0047E792 /* AccountView.swift */; };
+		B408BA3A24B235730047E792 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408BA3924B235730047E792 /* CardView.swift */; };
+		B408BA3C24B236CD0047E792 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408BA3B24B236CD0047E792 /* Color.swift */; };
+		B408BA3E24B245CF0047E792 /* AccountsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408BA3D24B245CF0047E792 /* AccountsScreenView.swift */; };
+		B408BA4024B24CD10047E792 /* AddAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408BA3F24B24CD10047E792 /* AddAccountView.swift */; };
+		B408BA4324B257BB0047E792 /* StoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408BA4224B257BB0047E792 /* StoreController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B408B9DF24B219540047E792 /* expenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = expenses.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B408B9DF24B219540047E792 /* Expenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expenses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B408B9E224B219540047E792 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B408B9E424B219540047E792 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B408B9E724B219540047E792 /* expenses.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = expenses.xcdatamodel; sourceTree = "<group>"; };
@@ -51,6 +62,18 @@
 		B408BA0324B2195C0047E792 /* expensesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = expensesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B408BA0724B2195C0047E792 /* expensesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = expensesUITests.swift; sourceTree = "<group>"; };
 		B408BA0924B2195C0047E792 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B408BA2024B222B80047E792 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		B408BA2224B224BC0047E792 /* Expenses.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Expenses.entitlements; sourceTree = "<group>"; };
+		B408BA2824B226580047E792 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		B408BA3124B229E30047E792 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		B408BA3324B22CB10047E792 /* AccountRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRowView.swift; sourceTree = "<group>"; };
+		B408BA3524B22DBC0047E792 /* TextFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFormatter.swift; sourceTree = "<group>"; };
+		B408BA3724B230CA0047E792 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		B408BA3924B235730047E792 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		B408BA3B24B236CD0047E792 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		B408BA3D24B245CF0047E792 /* AccountsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsScreenView.swift; sourceTree = "<group>"; };
+		B408BA3F24B24CD10047E792 /* AddAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountView.swift; sourceTree = "<group>"; };
+		B408BA4224B257BB0047E792 /* StoreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +114,7 @@
 		B408B9E024B219540047E792 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B408B9DF24B219540047E792 /* expenses.app */,
+				B408B9DF24B219540047E792 /* Expenses.app */,
 				B408B9F824B2195B0047E792 /* expensesTests.xctest */,
 				B408BA0324B2195C0047E792 /* expensesUITests.xctest */,
 			);
@@ -101,9 +124,13 @@
 		B408B9E124B219540047E792 /* expenses */ = {
 			isa = PBXGroup;
 			children = (
+				B408BA4124B257A40047E792 /* services */,
+				B408BA2224B224BC0047E792 /* Expenses.entitlements */,
+				B408BA1F24B222A10047E792 /* utils */,
+				B408BA1624B21AFB0047E792 /* models */,
+				B408BA1524B21AF40047E792 /* views */,
 				B408B9E224B219540047E792 /* AppDelegate.swift */,
 				B408B9E424B219540047E792 /* SceneDelegate.swift */,
-				B408B9E924B219540047E792 /* ContentView.swift */,
 				B408B9EB24B2195B0047E792 /* Assets.xcassets */,
 				B408B9F024B2195B0047E792 /* LaunchScreen.storyboard */,
 				B408B9F324B2195B0047E792 /* Info.plist */,
@@ -139,6 +166,46 @@
 			path = expensesUITests;
 			sourceTree = "<group>";
 		};
+		B408BA1524B21AF40047E792 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				B408B9E924B219540047E792 /* ContentView.swift */,
+				B408BA3324B22CB10047E792 /* AccountRowView.swift */,
+				B408BA3724B230CA0047E792 /* AccountView.swift */,
+				B408BA3924B235730047E792 /* CardView.swift */,
+				B408BA3D24B245CF0047E792 /* AccountsScreenView.swift */,
+				B408BA3F24B24CD10047E792 /* AddAccountView.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		B408BA1624B21AFB0047E792 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				B408BA2824B226580047E792 /* Account.swift */,
+				B408BA3124B229E30047E792 /* Transaction.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		B408BA1F24B222A10047E792 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				B408BA3524B22DBC0047E792 /* TextFormatter.swift */,
+				B408BA3B24B236CD0047E792 /* Color.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		B408BA4124B257A40047E792 /* services */ = {
+			isa = PBXGroup;
+			children = (
+				B408BA2024B222B80047E792 /* AppSettings.swift */,
+				B408BA4224B257BB0047E792 /* StoreController.swift */,
+			);
+			path = services;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -156,7 +223,7 @@
 			);
 			name = expenses;
 			productName = expenses;
-			productReference = B408B9DF24B219540047E792 /* expenses.app */;
+			productReference = B408B9DF24B219540047E792 /* Expenses.app */;
 			productType = "com.apple.product-type.application";
 		};
 		B408B9F724B2195B0047E792 /* expensesTests */ = {
@@ -271,8 +338,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				B408B9E824B219540047E792 /* expenses.xcdatamodeld in Sources */,
+				B408BA2C24B226580047E792 /* Account.swift in Sources */,
+				B408BA3224B229E30047E792 /* Transaction.swift in Sources */,
 				B408B9E324B219540047E792 /* AppDelegate.swift in Sources */,
+				B408BA3824B230CA0047E792 /* AccountView.swift in Sources */,
+				B408BA3C24B236CD0047E792 /* Color.swift in Sources */,
+				B408BA4024B24CD10047E792 /* AddAccountView.swift in Sources */,
+				B408BA3424B22CB10047E792 /* AccountRowView.swift in Sources */,
 				B408B9EA24B219540047E792 /* ContentView.swift in Sources */,
+				B408BA3624B22DBC0047E792 /* TextFormatter.swift in Sources */,
+				B408BA3E24B245CF0047E792 /* AccountsScreenView.swift in Sources */,
+				B408BA2124B222B80047E792 /* AppSettings.swift in Sources */,
+				B408BA3A24B235730047E792 /* CardView.swift in Sources */,
+				B408BA4324B257BB0047E792 /* StoreController.swift in Sources */,
 				B408B9E524B219540047E792 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,17 +516,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = expenses/Expenses.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"expenses/Preview Content\"";
 				DEVELOPMENT_TEAM = R7GX9454SD;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = expenses/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhuravskymax.expenses;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Expenses;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -458,17 +539,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = expenses/Expenses.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"expenses/Preview Content\"";
 				DEVELOPMENT_TEAM = R7GX9454SD;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = expenses/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhuravskymax.expenses;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Expenses;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
