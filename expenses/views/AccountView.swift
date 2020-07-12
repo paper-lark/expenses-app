@@ -14,12 +14,12 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import SwiftUI
 import CoreData
+import SwiftUI
 
 struct AccountView: View {
     let account: Account
-    
+
     var body: some View {
         ZStack(alignment: .topLeading) {
             Rectangle()
@@ -29,9 +29,12 @@ struct AccountView: View {
                     VStack(alignment: .leading, spacing: 8) {
                         Text("\(TextFormatter.formatAccountType(self.account.accountType)) balance")
                             .font(.system(size: 22, weight: .semibold))
-                        Text(TextFormatter.formatAmount(self.account.balance, currency: AppSettings.getCurrency()))
-                            .font(.largeTitle)
-                            .frame(minWidth:0, maxWidth: .infinity, alignment: .center)
+                        Text(
+                            TextFormatter.formatAmount(
+                                self.account.balance, currency: AppSettings.getCurrency())
+                        )
+                        .font(.largeTitle)
+                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
                     }
                 }
                 CardView {
@@ -42,21 +45,24 @@ struct AccountView: View {
                     }
                 }
             }
-                .padding(.top, 24)
+            .padding(.top, 24)
         }
-            // FIXME: add go back button
-            .navigationBarTitle(Text(account.accountTitle), displayMode: .inline)
-            .navigationBarItems(trailing: Button(action: {
-                // FIXME:
-            }, label: {
-                Image(systemName: "square.and.pencil")
-            }))
+        // FIXME: add go back button
+        .navigationBarTitle(Text(account.accountTitle), displayMode: .inline)
+        .navigationBarItems(
+            trailing: Button(
+                action: {
+                    // FIXME:
+                },
+                label: {
+                    Image(systemName: "square.and.pencil")
+                }))
     }
 }
 
 struct AccountView_Previews: PreviewProvider {
     static let moc = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
-    
+
     static var previews: some View {
         let account = Account(context: moc)
         account.id = UUID()

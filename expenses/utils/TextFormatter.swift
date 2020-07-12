@@ -16,7 +16,6 @@
 
 import Foundation
 
-
 class TextFormatter {
     static func formatAmount(_ amount: Int64, currency: Currency) -> String {
         let numberFormatter = NumberFormatter()
@@ -24,7 +23,7 @@ class TextFormatter {
         let amountString = numberFormatter.string(from: NSNumber(value: amount))!
         return amountString + formatCurrency(currency)
     }
-    
+
     static func formatCurrency(_ currency: Currency) -> String {
         switch currency {
         case .Dollar:
@@ -35,7 +34,7 @@ class TextFormatter {
             return "₽"
         }
     }
-    
+
     static func formatAccountType(_ type: AccountType) -> String {
         switch type {
         case .Asset:

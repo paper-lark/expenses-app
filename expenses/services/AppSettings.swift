@@ -26,12 +26,12 @@ class AppSettings {
     private enum UserDefaultsKeys: String {
         case Currency = "currency"
     }
-    
+
     static func getCurrency() -> Currency {
         let raw = UserDefaults.standard.integer(forKey: UserDefaultsKeys.Currency.rawValue)
         return Currency(rawValue: raw) ?? Currency.Rouble
     }
-    
+
     static func setCurrency(_ currency: Currency) {
         UserDefaults.standard.set(currency.rawValue, forKey: UserDefaultsKeys.Currency.rawValue)
     }

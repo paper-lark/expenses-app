@@ -16,7 +16,6 @@
 
 import SwiftUI
 
-
 extension Color {
     public static let systemBackground = Color(UIColor.systemBackground)
     public static let secondarySystemBackground = Color(UIColor.secondarySystemBackground)

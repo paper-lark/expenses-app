@@ -14,19 +14,21 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import SwiftUI
 import CoreData
+import SwiftUI
 
 struct AccountRowView: View {
     let account: Account
-    
+
     var body: some View {
         NavigationLink(destination: AccountView(account: account)) {
             HStack(alignment: .firstTextBaseline) {
                 Text(account.accountTitle)
                 Spacer()
-                Text(TextFormatter.formatAmount(account.balance, currency: AppSettings.getCurrency()))
-                    .foregroundColor(.secondary)
+                Text(
+                    TextFormatter.formatAmount(account.balance, currency: AppSettings.getCurrency())
+                )
+                .foregroundColor(.secondary)
             }
         }
     }
@@ -34,7 +36,7 @@ struct AccountRowView: View {
 
 struct AccountRowView_Previews: PreviewProvider {
     static let moc = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
-    
+
     static var previews: some View {
         let account = Account(context: moc)
         account.id = UUID()
