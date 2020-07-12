@@ -20,12 +20,18 @@ extension Transaction {
     public var created: Date {
         return self.ts ?? Date()
     }
-    
+
     public var credited: Account {
-        return self.creditAccount!
+        if let account = self.creditAccount {
+            return account
+        }
+        fatalError("Credited account is nil")
     }
-    
+
     public var debited: Account {
-        return self.debitAccount!
+        if let account = self.debitAccount {
+            return account
+        }
+        fatalError("Debited account is nil")
     }
 }

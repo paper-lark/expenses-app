@@ -14,27 +14,32 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import Foundation
 import CoreData
-
-private let defaultEquityID = UUID(uuidString: "00000000-0000-0000-0000-000000000001")!
+import Foundation
 
 class StoreController {
+    private static let defaultEquityID: UUID = {
+        if let id = UUID(uuidString: "00000000-0000-0000-0000-000000000001") {
+            return id
+        }
+        fatalError("Failed to parse defaultEquityID")
+    }()
+
     static func initializeStore(moc: NSManagedObjectContext) {
         // create default equity account
-        let request = NSFetchRequest<Account>(entityName: Account.entity().name!)
+        let request = NSFetchRequest<Account>(entityName: Account.entity().name ?? "")
         request.predicate = getDefaultEquityPredicate()
-        
+
         if (try? moc.count(for: request)) == 0 {
             let equityAccount = Account(context: moc)
             equityAccount.id = defaultEquityID
             equityAccount.title = "Balancing account"
-            equityAccount.accountType = AccountType.Equity
+            equityAccount.accountType = AccountType.equity
             equityAccount.isDefault = true
             try? moc.save()
         }
     }
-    
+
     static func getDefaultEquityPredicate() -> NSPredicate {
         return NSPredicate(
             format: "%K == %@",

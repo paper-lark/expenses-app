@@ -16,37 +16,38 @@
 
 import Foundation
 
-
 class TextFormatter {
     static func formatAmount(_ amount: Int64, currency: Currency) -> String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        let amountString = numberFormatter.string(from: NSNumber(value: amount))!
-        return amountString + formatCurrency(currency)
+        if let amountString = numberFormatter.string(from: NSNumber(value: amount)) {
+            return amountString + formatCurrency(currency)
+        }
+        fatalError("Failed to format money amount")
     }
-    
+
     static func formatCurrency(_ currency: Currency) -> String {
         switch currency {
-        case .Dollar:
+        case .dollar:
             return "$"
-        case .Euro:
+        case .euro:
             return "€"
-        case .Rouble:
+        case .rouble:
             return "₽"
         }
     }
-    
+
     static func formatAccountType(_ type: AccountType) -> String {
         switch type {
-        case .Asset:
+        case .asset:
             return "Asset"
-        case .Equity:
+        case .equity:
             return "Equity"
-        case .Expense:
+        case .expense:
             return "Expense"
-        case .Income:
+        case .income:
             return "Income"
-        case .Liability:
+        case .liability:
             return "Liability"
         }
     }

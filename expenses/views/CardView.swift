@@ -18,15 +18,17 @@ import SwiftUI
 
 struct CardView<ChildView: View>: View {
     let child: () -> ChildView
-    
+
     var body: some View {
         ZStack(alignment: .leading) {
             self.child()
                 .padding(16)
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .topLeading)
         }
-        .background(RoundedRectangle(cornerRadius: 8, style: .continuous)
-        .fill(Color(UIColor.systemBackground)))
+        .background(
+            RoundedRectangle(cornerRadius: 8, style: .continuous)
+                .fill(Color(UIColor.systemBackground))
+        )
         .padding(.horizontal, 16)
     }
 }

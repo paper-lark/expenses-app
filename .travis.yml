@@ -1,0 +1,15 @@
+language: swift
+osx_image: xcode11.5
+addons:
+  homebrew:
+    packages:
+    - swift-format
+    update: true
+script:
+  - ./scripts/lint.sh
+  - ./scripts/build.sh 
+
+# xcode_project: expenses.xcodeproj
+# xcode_scheme: expenses
+# xcode_destination: platform=iOS Simulator,OS=13.2,name=iPhone 11
+
