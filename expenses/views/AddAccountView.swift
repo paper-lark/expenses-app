@@ -104,12 +104,12 @@ struct AddAccountView: View {
     }
 
     private func shouldCreditFromEquity() -> Bool {
-        return type == .Asset || type == .Expense
+        return type == .asset || type == .expense
     }
 }
 
 struct AddAccountView_Previews: PreviewProvider {
     static var previews: some View {
-        AddAccountView(type: AccountType.Asset)
+        AddAccountView(type: .asset)
     }
 }

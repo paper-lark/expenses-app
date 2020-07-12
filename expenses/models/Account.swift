@@ -18,17 +18,17 @@ import CoreData
 import Foundation
 
 public enum AccountType: Int16 {
-    case Asset = 0
-    case Expense = 1
-    case Income = 2
-    case Liability = 3
-    case Equity = 4
+    case asset = 0
+    case expense = 1
+    case income = 2
+    case liability = 3
+    case equity = 4
 }
 
 extension Account {
     public var accountType: AccountType {
         get {
-            return AccountType(rawValue: self.typeValue) ?? AccountType.Asset
+            return AccountType(rawValue: self.typeValue) ?? AccountType.asset
         }
 
         set {
@@ -76,7 +76,7 @@ extension Account {
             return $0 + $1
         }
 
-        if self.accountType == .Asset || self.accountType == .Expense {
+        if self.accountType == .asset || self.accountType == .expense {
             return totalDebit - totalCredit
         }
 

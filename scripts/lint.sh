@@ -1,3 +1,3 @@
-#!/usr/bint/env bash
+#!/usr/bin/env bash
 
-swift-format -mode lint -r .
+swift-format lint -r .

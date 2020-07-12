@@ -67,7 +67,7 @@ struct AccountView_Previews: PreviewProvider {
         let account = Account(context: moc)
         account.id = UUID()
         account.title = "Credit card"
-        account.accountType = AccountType.Asset
+        account.accountType = AccountType.asset
         return NavigationView {
             AccountView(account: account)
         }

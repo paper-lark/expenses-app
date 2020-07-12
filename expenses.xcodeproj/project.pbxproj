@@ -216,6 +216,8 @@
 				B408B9DB24B219540047E792 /* Sources */,
 				B408B9DC24B219540047E792 /* Frameworks */,
 				B408B9DD24B219540047E792 /* Resources */,
+				B408BA6324BB7EB00047E792 /* ShellScript */,
+				B408BA6424BB7EE90047E792 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -331,6 +333,43 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B408BA6324BB7EB00047E792 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swift-format >/dev/null; then\n    swift-format format -i -r ${PROJECT_DIR}\nelse\n    echo \"WARNING: swift-format is not installed\"\nfi\n";
+		};
+		B408BA6424BB7EE90047E792 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swift-format >/dev/null; then\n    swift-format -m lint -r ${PROJECT_DIR}\n    exit 0\nelse\n    echo \"WARNING: swift-format is not installed\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B408B9DB24B219540047E792 /* Sources */ = {

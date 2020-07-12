@@ -17,22 +17,22 @@
 import Foundation
 
 enum Currency: Int {
-    case Rouble = 0
-    case Dollar = 1
-    case Euro = 2
+    case rouble = 0
+    case dollar = 1
+    case euro = 2
 }
 
 class AppSettings {
     private enum UserDefaultsKeys: String {
-        case Currency = "currency"
+        case currency = "currency"
     }
 
     static func getCurrency() -> Currency {
-        let raw = UserDefaults.standard.integer(forKey: UserDefaultsKeys.Currency.rawValue)
-        return Currency(rawValue: raw) ?? Currency.Rouble
+        let raw = UserDefaults.standard.integer(forKey: UserDefaultsKeys.currency.rawValue)
+        return Currency(rawValue: raw) ?? Currency.rouble
     }
 
     static func setCurrency(_ currency: Currency) {
-        UserDefaults.standard.set(currency.rawValue, forKey: UserDefaultsKeys.Currency.rawValue)
+        UserDefaults.standard.set(currency.rawValue, forKey: UserDefaultsKeys.currency.rawValue)
     }
 }

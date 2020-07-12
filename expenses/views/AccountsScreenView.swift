@@ -18,11 +18,11 @@ import CoreData
 import SwiftUI
 
 let accountTypeOrder: [AccountType] = [
-    .Asset,
-    .Expense,
-    .Income,
-    .Liability,
-    .Equity,
+    .asset,
+    .expense,
+    .income,
+    .liability,
+    .equity,
 ]
 
 struct AccountsScreenView: View {
@@ -32,7 +32,7 @@ struct AccountsScreenView: View {
         sortDescriptors: [
             NSSortDescriptor(keyPath: \Account.title, ascending: true)
         ]) var accounts: FetchedResults<Account>
-    @State var selectedType = AccountType.Asset  // FIXME: take from app state
+    @State var selectedType = AccountType.asset  // FIXME: take from app state
     @State var isAddingAccount = false
 
     init() {

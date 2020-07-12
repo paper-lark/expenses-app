@@ -22,10 +22,16 @@ extension Transaction {
     }
 
     public var credited: Account {
-        return self.creditAccount!
+        if let account = self.creditAccount {
+            return account
+        }
+        fatalError("Credit account is nil")
     }
 
     public var debited: Account {
-        return self.debitAccount!
+        if let account = self.debitAccount {
+            return account
+        }
+        fatalError("Credit account is nil")
     }
 }
