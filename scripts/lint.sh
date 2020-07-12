@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-swift-format lint -r .
+ROOT="$(git rev-parse --show-toplevel)"
+swift-format lint --configuration "${ROOT}/.swift-format" -r "${ROOT}"
