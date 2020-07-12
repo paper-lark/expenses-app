@@ -31,7 +31,8 @@ struct AccountsScreenView: View {
         entity: Account.entity(),
         sortDescriptors: [
             NSSortDescriptor(keyPath: \Account.title, ascending: true)
-        ]) var accounts: FetchedResults<Account>
+        ]
+    ) var accounts: FetchedResults<Account>
     @State var selectedType = AccountType.asset  // FIXME: take from app state
     @State var isAddingAccount = false
 
