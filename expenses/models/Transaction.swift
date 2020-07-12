@@ -25,13 +25,13 @@ extension Transaction {
         if let account = self.creditAccount {
             return account
         }
-        fatalError("Credit account is nil")
+        fatalError("Credited account is nil")
     }
 
     public var debited: Account {
         if let account = self.debitAccount {
             return account
         }
-        fatalError("Credit account is nil")
+        fatalError("Debited account is nil")
     }
 }
