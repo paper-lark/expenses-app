@@ -14,10 +14,9 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import CoreData
 import Foundation
 
-public enum AccountType: Int16 {
+enum AccountType: Int16 {
     case asset = 0
     case expense = 1
     case income = 2
@@ -25,46 +24,22 @@ public enum AccountType: Int16 {
     case equity = 4
 }
 
-extension Account {
-    public var accountType: AccountType {
-        get {
-            return AccountType(rawValue: self.typeValue) ?? AccountType.asset
-        }
+struct AccountModel {
+    let id: UUID
+    let title: String
+    let type: AccountType
+    let transactions: [TransactionModel]
+    let isDefault: Bool
 
-        set {
-            self.typeValue = newValue.rawValue
-        }
+    var debit: [TransactionModel] {
+        return transactions.filter({ $0.debitAccountID == id })
     }
 
-    public var accountTitle: String {
-        return self.title ?? "Unknown title"
+    var credit: [TransactionModel] {
+        return transactions.filter({ $0.creditAccountID == id })
     }
 
-    public var debit: [Transaction] {
-        let set = self.debitTransactions as? Set<Transaction> ?? []
-        return set.sorted {
-            $0.created > $1.created
-        }
-    }
-
-    public var credit: [Transaction] {
-        let set = self.creditTransactions as? Set<Transaction> ?? []
-        return set.sorted {
-            $0.created > $1.created
-        }
-    }
-
-    public var transactions: [Transaction] {
-        let set = (self.debitTransactions as? Set<Transaction> ?? []).union(
-            self.creditTransactions as? Set<Transaction> ?? []
-        )
-        return set.sorted {
-            $0.created > $1.created
-        }
-        // FIXME: use own type to separate debit and credit entities
-    }
-
-    public var balance: Int64 {
+    var balance: Int64 {
         let totalDebit = self.debit.map {
             return $0.amount
         }.reduce(0) {
@@ -76,7 +51,7 @@ extension Account {
             return $0 + $1
         }
 
-        if self.accountType == .asset || self.accountType == .expense {
+        if self.type == .asset || self.type == .expense {
             return totalDebit - totalCredit
         }
 

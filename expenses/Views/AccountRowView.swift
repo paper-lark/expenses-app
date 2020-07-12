@@ -18,12 +18,12 @@ import CoreData
 import SwiftUI
 
 struct AccountRowView: View {
-    let account: Account
+    let account: AccountModel
 
     var body: some View {
         NavigationLink(destination: AccountView(account: account)) {
             HStack(alignment: .firstTextBaseline) {
-                Text(account.accountTitle)
+                Text(account.title)
                 Spacer()
                 Text(
                     TextFormatter.formatAmount(account.balance, currency: AppSettings.getCurrency())
@@ -35,16 +35,17 @@ struct AccountRowView: View {
 }
 
 struct AccountRowView_Previews: PreviewProvider {
-    static let moc = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
-
     static var previews: some View {
-        let account = Account(context: moc)
-        account.id = UUID()
-        account.title = "Credit card"
-        account.accountType = AccountType.asset
         return NavigationView {
             List {
-                AccountRowView(account: account)
+                AccountRowView(
+                    account: AccountModel(
+                        id: UUID(),
+                        title: "Credit card",
+                        type: .asset,
+                        transactions: [],
+                        isDefault: false
+                    ))
             }
         }
     }

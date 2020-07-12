@@ -14,24 +14,20 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import Foundation
+import SwiftUI
 
-extension Transaction {
-    public var created: Date {
-        return self.ts ?? Date()
-    }
-
-    public var credited: Account {
-        if let account = self.creditAccount {
-            return account
+struct ContentView: View {
+    @Environment(\.managedObjectContext) var moc
+    var body: some View {
+        NavigationView {
+            AccountsScreenView(model: AccountsScreenViewModel(context: moc))
+            // TODO: add other tabs
         }
-        fatalError("Credited account is nil")
     }
+}
 
-    public var debited: Account {
-        if let account = self.debitAccount {
-            return account
-        }
-        fatalError("Debited account is nil")
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }

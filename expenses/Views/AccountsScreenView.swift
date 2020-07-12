@@ -17,26 +17,12 @@
 import CoreData
 import SwiftUI
 
-let accountTypeOrder: [AccountType] = [
-    .asset,
-    .expense,
-    .income,
-    .liability,
-    .equity,
-]
-
 struct AccountsScreenView: View {
-    @Environment(\.managedObjectContext) var moc
-    @FetchRequest(
-        entity: Account.entity(),
-        sortDescriptors: [
-            NSSortDescriptor(keyPath: \Account.title, ascending: true)
-        ]
-    ) var accounts: FetchedResults<Account>
-    @State var selectedType = AccountType.asset  // FIXME: take from app state
-    @State var isAddingAccount = false
+    @ObservedObject var model: AccountsScreenViewModel
 
-    init() {
+    init(model: AccountsScreenViewModel) {
+        self.model = model
+
         // remove extra separators below the list
         if #available(iOS 14.0, *) {
             // iOS 14 has no separators
@@ -47,7 +33,7 @@ struct AccountsScreenView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Picker("", selection: $selectedType) {
+            Picker("", selection: self.$model.selectedType) {
                 ForEach(accountTypeOrder, id: \.self) { type in
                     Text(TextFormatter.formatAccountType(type)).tag(type)
                 }
@@ -55,18 +41,29 @@ struct AccountsScreenView: View {
                 .padding(.top, 16)
                 .padding(.horizontal, 16)
             List {
-                ForEach(self.getSelectedAccounts(), id: \.id) { account in
+                ForEach(self.model.getSelectedAccounts(), id: \.id) { account in
                     AccountRowView(account: account)
                         .deleteDisabled(account.isDefault)
                 }
-                .onDelete(perform: self.deleteAccounts)
+                .onDelete(perform: model.deleteAccounts)
+                .alert(
+                    isPresented: $model.isDeletingAccounts,
+                    content: {
+                        Alert(
+                            title: Text("Removing accounts"),
+                            message: Text(
+                                "Accounts will be removed with all their related transactions. Are you sure?"
+                            ),
+                            primaryButton: .destructive(
+                                Text("Remove"), action: self.model.confirmDelete),
+                            secondaryButton: .default(Text("Cancel"))
+                        )
+                    })
             }
             Spacer()
 
             Button(
-                action: {
-                    // FIXME:
-                },
+                action: self.model.startAddingTransaction,
                 label: {
                     HStack(alignment: .lastTextBaseline) {
                         Image(systemName: "plus.circle")
@@ -76,44 +73,40 @@ struct AccountsScreenView: View {
             )
             .padding(.vertical, 48)
             .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
+            .sheet(
+                isPresented: $model.isAddingTransaction,
+                content: {
+                    AddTransactionView(model: self.model.getAddTransactionViewModel())
+                }
+            )
         }
         .navigationBarTitle("Accounts")
         .navigationBarItems(
             leading: EditButton(),
             trailing: Button(
-                action: {
-                    self.isAddingAccount = true
-                },
+                action: self.model.startAddingAccount,
                 label: {
                     Image(systemName: "plus")
-                })
+                }
+            ).sheet(
+                isPresented: $model.isAddingAccount,
+                content: {
+                    AddAccountView(model: self.model.getAddAccountViewModel())
+                }
+            )
         )
-        .sheet(
-            isPresented: $isAddingAccount,
-            content: {
-                AddAccountView(type: self.selectedType)
-                    .environment(\.managedObjectContext, self.moc)
-            })
-    }
-
-    private func getSelectedAccounts() -> [Account] {
-        return self.accounts.filter { $0.accountType == self.selectedType }
-    }
-
-    private func deleteAccounts(at offsets: IndexSet) {
-        for offset in offsets {
-            moc.delete(self.getSelectedAccounts()[offset])
-        }
-
-        // FIXME: confirm action
-        try? moc.save()
     }
 }
 
 struct AccountsScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            AccountsScreenView()
+        let moc = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+        let model = AccountsScreenViewModel(
+            context: moc
+        )
+
+        return NavigationView {
+            AccountsScreenView(model: model)
         }
     }
 }
