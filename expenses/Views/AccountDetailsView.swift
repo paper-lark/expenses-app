@@ -14,19 +14,34 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+import CoreData
 import SwiftUI
 
-struct ContentView: View {
+struct AccountDetailsView: View {
+    let account: AccountModel
+
     var body: some View {
-        NavigationView {
-            AccountsScreenView()
-            // FIXME: add tabs
+        VStack(alignment: .leading, spacing: 8) {
+            Text("\(TextFormatter.formatAccountType(account.type)) balance")
+                .font(.system(size: 22, weight: .semibold))
+            Text(
+                TextFormatter.formatAmount(account.balance, currency: AppSettings.getCurrency())
+            )
+            .font(.largeTitle)
+            .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
         }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct AccountOverviewView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        return AccountDetailsView(
+            account: AccountModel(
+                id: UUID(),
+                title: "Cash",
+                type: .asset,
+                transactions: [],
+                isDefault: false
+            ))
     }
 }

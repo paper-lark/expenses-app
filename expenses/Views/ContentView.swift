@@ -14,38 +14,20 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import CoreData
 import SwiftUI
 
-struct AccountRowView: View {
-    let account: Account
-
+struct ContentView: View {
+    @Environment(\.managedObjectContext) var moc
     var body: some View {
-        NavigationLink(destination: AccountView(account: account)) {
-            HStack(alignment: .firstTextBaseline) {
-                Text(account.accountTitle)
-                Spacer()
-                Text(
-                    TextFormatter.formatAmount(account.balance, currency: AppSettings.getCurrency())
-                )
-                .foregroundColor(.secondary)
-            }
+        NavigationView {
+            AccountsScreenView(model: AccountsScreenViewModel(context: moc))
+            // TODO: add other tabs
         }
     }
 }
 
-struct AccountRowView_Previews: PreviewProvider {
-    static let moc = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
-
+struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let account = Account(context: moc)
-        account.id = UUID()
-        account.title = "Credit card"
-        account.accountType = AccountType.asset
-        return NavigationView {
-            List {
-                AccountRowView(account: account)
-            }
-        }
+        ContentView()
     }
 }

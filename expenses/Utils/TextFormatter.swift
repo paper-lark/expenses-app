@@ -51,4 +51,17 @@ class TextFormatter {
             return "Liability"
         }
     }
+
+    static func formatDate(_ date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.setLocalizedDateFormatFromTemplate("HH:mm dd.MM.yyyy")
+
+        if Calendar.current.isDate(date, equalTo: Date(), toGranularity: Calendar.Component.year) {
+            dateFormatter.setLocalizedDateFormatFromTemplate("HH:mm dd.MM")
+        }
+        if Calendar.current.isDateInToday(date) {
+            dateFormatter.setLocalizedDateFormatFromTemplate("HH:mm")
+        }
+        return dateFormatter.string(from: date)
+    }
 }

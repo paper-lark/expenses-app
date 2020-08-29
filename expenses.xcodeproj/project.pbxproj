@@ -17,8 +17,6 @@
 		B408B9FD24B2195B0047E792 /* expensesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408B9FC24B2195B0047E792 /* expensesTests.swift */; };
 		B408BA0824B2195C0047E792 /* expensesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408BA0724B2195C0047E792 /* expensesUITests.swift */; };
 		B408BA2124B222B80047E792 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408BA2024B222B80047E792 /* AppSettings.swift */; };
-		B408BA2C24B226580047E792 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408BA2824B226580047E792 /* Account.swift */; };
-		B408BA3224B229E30047E792 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408BA3124B229E30047E792 /* Transaction.swift */; };
 		B408BA3424B22CB10047E792 /* AccountRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408BA3324B22CB10047E792 /* AccountRowView.swift */; };
 		B408BA3624B22DBC0047E792 /* TextFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408BA3524B22DBC0047E792 /* TextFormatter.swift */; };
 		B408BA3824B230CA0047E792 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408BA3724B230CA0047E792 /* AccountView.swift */; };
@@ -26,7 +24,22 @@
 		B408BA3C24B236CD0047E792 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408BA3B24B236CD0047E792 /* Color.swift */; };
 		B408BA3E24B245CF0047E792 /* AccountsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408BA3D24B245CF0047E792 /* AccountsScreenView.swift */; };
 		B408BA4024B24CD10047E792 /* AddAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408BA3F24B24CD10047E792 /* AddAccountView.swift */; };
-		B408BA4324B257BB0047E792 /* StoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408BA4224B257BB0047E792 /* StoreController.swift */; };
+		B408BA4324B257BB0047E792 /* RepositoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408BA4224B257BB0047E792 /* RepositoryController.swift */; };
+		B408BA4624BB54F60047E792 /* AddAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408BA4524BB54F60047E792 /* AddAccountViewModel.swift */; };
+		B408BA5124BB60DB0047E792 /* AccountDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408BA5024BB60DB0047E792 /* AccountDetailsView.swift */; };
+		B408BA5324BB615B0047E792 /* AccountHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408BA5224BB615B0047E792 /* AccountHistoryView.swift */; };
+		B408BA6224BB66780047E792 /* AccountsScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408BA6124BB66780047E792 /* AccountsScreenViewModel.swift */; };
+		B42E634324FA621300663B79 /* AddTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E634224FA621300663B79 /* AddTransactionView.swift */; };
+		B42E634524FA624F00663B79 /* AddTransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E634424FA624F00663B79 /* AddTransactionViewModel.swift */; };
+		B42E634724FA6C2300663B79 /* AccountPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E634624FA6C2300663B79 /* AccountPicker.swift */; };
+		B42E634B24FA78E900663B79 /* AccountTypePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E634A24FA78E900663B79 /* AccountTypePicker.swift */; };
+		B47E5BF024FA956200946093 /* AccountRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47E5BEF24FA956200946093 /* AccountRepository.swift */; };
+		B47E5BF224FA96BA00946093 /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47E5BF124FA96BA00946093 /* AccountModel.swift */; };
+		B47E5BF424FA978E00946093 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47E5BF324FA978E00946093 /* TransactionModel.swift */; };
+		B47E5BF624FA9C9800946093 /* TransactionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47E5BF524FA9C9800946093 /* TransactionRepository.swift */; };
+		B47E5BF724FA9F7600946093 /* AccountRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47E5BEF24FA956200946093 /* AccountRepository.swift */; };
+		B47E5BF924FAC1AC00946093 /* TransactionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47E5BF824FAC1AC00946093 /* TransactionRowView.swift */; };
+		B47E5BFB24FAD10F00946093 /* TransactionFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47E5BFA24FAD10F00946093 /* TransactionFilterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,8 +77,6 @@
 		B408BA0924B2195C0047E792 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B408BA2024B222B80047E792 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		B408BA2224B224BC0047E792 /* Expenses.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Expenses.entitlements; sourceTree = "<group>"; };
-		B408BA2824B226580047E792 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
-		B408BA3124B229E30047E792 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		B408BA3324B22CB10047E792 /* AccountRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRowView.swift; sourceTree = "<group>"; };
 		B408BA3524B22DBC0047E792 /* TextFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFormatter.swift; sourceTree = "<group>"; };
 		B408BA3724B230CA0047E792 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
@@ -73,7 +84,21 @@
 		B408BA3B24B236CD0047E792 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		B408BA3D24B245CF0047E792 /* AccountsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsScreenView.swift; sourceTree = "<group>"; };
 		B408BA3F24B24CD10047E792 /* AddAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountView.swift; sourceTree = "<group>"; };
-		B408BA4224B257BB0047E792 /* StoreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreController.swift; sourceTree = "<group>"; };
+		B408BA4224B257BB0047E792 /* RepositoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryController.swift; sourceTree = "<group>"; };
+		B408BA4524BB54F60047E792 /* AddAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountViewModel.swift; sourceTree = "<group>"; };
+		B408BA5024BB60DB0047E792 /* AccountDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsView.swift; sourceTree = "<group>"; };
+		B408BA5224BB615B0047E792 /* AccountHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountHistoryView.swift; sourceTree = "<group>"; };
+		B408BA6124BB66780047E792 /* AccountsScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsScreenViewModel.swift; sourceTree = "<group>"; };
+		B42E634224FA621300663B79 /* AddTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddTransactionView.swift; path = expenses/views/AddTransactionView.swift; sourceTree = SOURCE_ROOT; };
+		B42E634424FA624F00663B79 /* AddTransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewModel.swift; sourceTree = "<group>"; };
+		B42E634624FA6C2300663B79 /* AccountPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AccountPicker.swift; path = expenses/views/AccountPicker.swift; sourceTree = SOURCE_ROOT; };
+		B42E634A24FA78E900663B79 /* AccountTypePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AccountTypePicker.swift; path = expenses/views/AccountTypePicker.swift; sourceTree = SOURCE_ROOT; };
+		B47E5BEF24FA956200946093 /* AccountRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRepository.swift; sourceTree = "<group>"; };
+		B47E5BF124FA96BA00946093 /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AccountModel.swift; path = expenses/models/AccountModel.swift; sourceTree = SOURCE_ROOT; };
+		B47E5BF324FA978E00946093 /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TransactionModel.swift; path = expenses/models/TransactionModel.swift; sourceTree = SOURCE_ROOT; };
+		B47E5BF524FA9C9800946093 /* TransactionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepository.swift; sourceTree = "<group>"; };
+		B47E5BF824FAC1AC00946093 /* TransactionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TransactionRowView.swift; path = expenses/views/TransactionRowView.swift; sourceTree = SOURCE_ROOT; };
+		B47E5BFA24FAD10F00946093 /* TransactionFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TransactionFilterView.swift; path = expenses/views/TransactionFilterView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,11 +149,13 @@
 		B408B9E124B219540047E792 /* expenses */ = {
 			isa = PBXGroup;
 			children = (
-				B408BA4124B257A40047E792 /* services */,
+				B47E5BEE24FA953C00946093 /* Repositories */,
+				B408BA4424BB54D80047E792 /* ViewModels */,
+				B408BA4124B257A40047E792 /* Services */,
 				B408BA2224B224BC0047E792 /* Expenses.entitlements */,
-				B408BA1F24B222A10047E792 /* utils */,
-				B408BA1624B21AFB0047E792 /* models */,
-				B408BA1524B21AF40047E792 /* views */,
+				B408BA1F24B222A10047E792 /* Utils */,
+				B408BA1624B21AFB0047E792 /* Models */,
+				B408BA1524B21AF40047E792 /* Views */,
 				B408B9E224B219540047E792 /* AppDelegate.swift */,
 				B408B9E424B219540047E792 /* SceneDelegate.swift */,
 				B408B9EB24B2195B0047E792 /* Assets.xcassets */,
@@ -166,7 +193,7 @@
 			path = expensesUITests;
 			sourceTree = "<group>";
 		};
-		B408BA1524B21AF40047E792 /* views */ = {
+		B408BA1524B21AF40047E792 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				B408B9E924B219540047E792 /* ContentView.swift */,
@@ -175,35 +202,61 @@
 				B408BA3924B235730047E792 /* CardView.swift */,
 				B408BA3D24B245CF0047E792 /* AccountsScreenView.swift */,
 				B408BA3F24B24CD10047E792 /* AddAccountView.swift */,
+				B408BA5024BB60DB0047E792 /* AccountDetailsView.swift */,
+				B408BA5224BB615B0047E792 /* AccountHistoryView.swift */,
+				B42E634224FA621300663B79 /* AddTransactionView.swift */,
+				B42E634624FA6C2300663B79 /* AccountPicker.swift */,
+				B42E634A24FA78E900663B79 /* AccountTypePicker.swift */,
+				B47E5BF824FAC1AC00946093 /* TransactionRowView.swift */,
+				B47E5BFA24FAD10F00946093 /* TransactionFilterView.swift */,
 			);
-			path = views;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		B408BA1624B21AFB0047E792 /* models */ = {
+		B408BA1624B21AFB0047E792 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B408BA2824B226580047E792 /* Account.swift */,
-				B408BA3124B229E30047E792 /* Transaction.swift */,
+				B47E5BF124FA96BA00946093 /* AccountModel.swift */,
+				B47E5BF324FA978E00946093 /* TransactionModel.swift */,
 			);
-			path = models;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		B408BA1F24B222A10047E792 /* utils */ = {
+		B408BA1F24B222A10047E792 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				B408BA3524B22DBC0047E792 /* TextFormatter.swift */,
 				B408BA3B24B236CD0047E792 /* Color.swift */,
 			);
-			path = utils;
+			path = Utils;
 			sourceTree = "<group>";
 		};
-		B408BA4124B257A40047E792 /* services */ = {
+		B408BA4124B257A40047E792 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				B408BA2024B222B80047E792 /* AppSettings.swift */,
-				B408BA4224B257BB0047E792 /* StoreController.swift */,
 			);
-			path = services;
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B408BA4424BB54D80047E792 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B408BA4524BB54F60047E792 /* AddAccountViewModel.swift */,
+				B408BA6124BB66780047E792 /* AccountsScreenViewModel.swift */,
+				B42E634424FA624F00663B79 /* AddTransactionViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B47E5BEE24FA953C00946093 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				B408BA4224B257BB0047E792 /* RepositoryController.swift */,
+				B47E5BEF24FA956200946093 /* AccountRepository.swift */,
+				B47E5BF524FA9C9800946093 /* TransactionRepository.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,20 +429,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B47E5BF624FA9C9800946093 /* TransactionRepository.swift in Sources */,
+				B47E5BF424FA978E00946093 /* TransactionModel.swift in Sources */,
 				B408B9E824B219540047E792 /* expenses.xcdatamodeld in Sources */,
-				B408BA2C24B226580047E792 /* Account.swift in Sources */,
-				B408BA3224B229E30047E792 /* Transaction.swift in Sources */,
+				B42E634324FA621300663B79 /* AddTransactionView.swift in Sources */,
+				B408BA5324BB615B0047E792 /* AccountHistoryView.swift in Sources */,
+				B47E5BF224FA96BA00946093 /* AccountModel.swift in Sources */,
+				B42E634B24FA78E900663B79 /* AccountTypePicker.swift in Sources */,
+				B47E5BF924FAC1AC00946093 /* TransactionRowView.swift in Sources */,
+				B47E5BF024FA956200946093 /* AccountRepository.swift in Sources */,
 				B408B9E324B219540047E792 /* AppDelegate.swift in Sources */,
+				B408BA5124BB60DB0047E792 /* AccountDetailsView.swift in Sources */,
 				B408BA3824B230CA0047E792 /* AccountView.swift in Sources */,
+				B42E634724FA6C2300663B79 /* AccountPicker.swift in Sources */,
 				B408BA3C24B236CD0047E792 /* Color.swift in Sources */,
+				B408BA4624BB54F60047E792 /* AddAccountViewModel.swift in Sources */,
+				B47E5BFB24FAD10F00946093 /* TransactionFilterView.swift in Sources */,
 				B408BA4024B24CD10047E792 /* AddAccountView.swift in Sources */,
 				B408BA3424B22CB10047E792 /* AccountRowView.swift in Sources */,
 				B408B9EA24B219540047E792 /* ContentView.swift in Sources */,
+				B42E634524FA624F00663B79 /* AddTransactionViewModel.swift in Sources */,
 				B408BA3624B22DBC0047E792 /* TextFormatter.swift in Sources */,
 				B408BA3E24B245CF0047E792 /* AccountsScreenView.swift in Sources */,
+				B408BA6224BB66780047E792 /* AccountsScreenViewModel.swift in Sources */,
 				B408BA2124B222B80047E792 /* AppSettings.swift in Sources */,
 				B408BA3A24B235730047E792 /* CardView.swift in Sources */,
-				B408BA4324B257BB0047E792 /* StoreController.swift in Sources */,
+				B408BA4324B257BB0047E792 /* RepositoryController.swift in Sources */,
 				B408B9E524B219540047E792 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,6 +464,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B408B9FD24B2195B0047E792 /* expensesTests.swift in Sources */,
+				B47E5BF724FA9F7600946093 /* AccountRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

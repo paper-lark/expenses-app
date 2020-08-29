@@ -14,24 +14,12 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+import CoreData
 import Foundation
 
-extension Transaction {
-    public var created: Date {
-        return self.ts ?? Date()
-    }
-
-    public var credited: Account {
-        if let account = self.creditAccount {
-            return account
-        }
-        fatalError("Credited account is nil")
-    }
-
-    public var debited: Account {
-        if let account = self.debitAccount {
-            return account
-        }
-        fatalError("Debited account is nil")
+class RepositoryController {
+    static func initializeStore(moc: NSManagedObjectContext) {
+        let repo = AccountRepository(context: moc)
+        repo.fetchDefaultEquityAccount()
     }
 }
