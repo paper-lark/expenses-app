@@ -19,6 +19,7 @@ import Foundation
 
 class RepositoryController {
     static func initializeStore(moc: NSManagedObjectContext) {
-        AccountRepository(context: moc).fetchDefaultEquityAccount()
+        let repo = AccountRepository(context: moc)
+        repo.fetchDefaultEquityAccount()
     }
 }

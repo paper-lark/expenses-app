@@ -18,18 +18,24 @@ import CoreData
 import SwiftUI
 
 struct AccountView: View {
+    // TODO: use a separate view model
     let account: AccountModel
+    let accounts: [AccountModel]
 
     var body: some View {
         ZStack(alignment: .topLeading) {
             Rectangle()
                 .foregroundColor(Color.secondarySystemBackground)
+                .edgesIgnoringSafeArea(Edge.Set.all)
             VStack(alignment: .leading, spacing: 16) {
                 CardView {
                     AccountDetailsView(account: self.account)
                 }
                 CardView {
-                    AccountHistoryView(account: self.account)
+                    AccountHistoryView(
+                        account: self.account,
+                        accounts: self.accounts
+                    )
                 }
             }
             .padding(.top, 24)
@@ -48,15 +54,20 @@ struct AccountView: View {
 
 struct AccountView_Previews: PreviewProvider {
     static var previews: some View {
+        let accounts = [
+            AccountModel(
+                id: UUID(),
+                title: "Credit card",
+                type: .asset,
+                transactions: [],
+                isDefault: false
+            )
+        ]
         return NavigationView {
             AccountView(
-                account: AccountModel(
-                    id: UUID(),
-                    title: "Credit card",
-                    type: .asset,
-                    transactions: [],
-                    isDefault: false
-                ))
+                account: accounts[0],
+                accounts: accounts
+            )
         }
     }
 }

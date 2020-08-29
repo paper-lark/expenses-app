@@ -38,6 +38,8 @@
 		B47E5BF424FA978E00946093 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47E5BF324FA978E00946093 /* TransactionModel.swift */; };
 		B47E5BF624FA9C9800946093 /* TransactionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47E5BF524FA9C9800946093 /* TransactionRepository.swift */; };
 		B47E5BF724FA9F7600946093 /* AccountRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47E5BEF24FA956200946093 /* AccountRepository.swift */; };
+		B47E5BF924FAC1AC00946093 /* TransactionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47E5BF824FAC1AC00946093 /* TransactionRowView.swift */; };
+		B47E5BFB24FAD10F00946093 /* TransactionFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47E5BFA24FAD10F00946093 /* TransactionFilterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +97,8 @@
 		B47E5BF124FA96BA00946093 /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AccountModel.swift; path = expenses/models/AccountModel.swift; sourceTree = SOURCE_ROOT; };
 		B47E5BF324FA978E00946093 /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TransactionModel.swift; path = expenses/models/TransactionModel.swift; sourceTree = SOURCE_ROOT; };
 		B47E5BF524FA9C9800946093 /* TransactionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepository.swift; sourceTree = "<group>"; };
+		B47E5BF824FAC1AC00946093 /* TransactionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TransactionRowView.swift; path = expenses/views/TransactionRowView.swift; sourceTree = SOURCE_ROOT; };
+		B47E5BFA24FAD10F00946093 /* TransactionFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TransactionFilterView.swift; path = expenses/views/TransactionFilterView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +207,8 @@
 				B42E634224FA621300663B79 /* AddTransactionView.swift */,
 				B42E634624FA6C2300663B79 /* AccountPicker.swift */,
 				B42E634A24FA78E900663B79 /* AccountTypePicker.swift */,
+				B47E5BF824FAC1AC00946093 /* TransactionRowView.swift */,
+				B47E5BFA24FAD10F00946093 /* TransactionFilterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -430,6 +436,7 @@
 				B408BA5324BB615B0047E792 /* AccountHistoryView.swift in Sources */,
 				B47E5BF224FA96BA00946093 /* AccountModel.swift in Sources */,
 				B42E634B24FA78E900663B79 /* AccountTypePicker.swift in Sources */,
+				B47E5BF924FAC1AC00946093 /* TransactionRowView.swift in Sources */,
 				B47E5BF024FA956200946093 /* AccountRepository.swift in Sources */,
 				B408B9E324B219540047E792 /* AppDelegate.swift in Sources */,
 				B408BA5124BB60DB0047E792 /* AccountDetailsView.swift in Sources */,
@@ -437,6 +444,7 @@
 				B42E634724FA6C2300663B79 /* AccountPicker.swift in Sources */,
 				B408BA3C24B236CD0047E792 /* Color.swift in Sources */,
 				B408BA4624BB54F60047E792 /* AddAccountViewModel.swift in Sources */,
+				B47E5BFB24FAD10F00946093 /* TransactionFilterView.swift in Sources */,
 				B408BA4024B24CD10047E792 /* AddAccountView.swift in Sources */,
 				B408BA3424B22CB10047E792 /* AccountRowView.swift in Sources */,
 				B408B9EA24B219540047E792 /* ContentView.swift in Sources */,

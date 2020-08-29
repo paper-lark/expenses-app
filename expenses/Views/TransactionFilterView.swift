@@ -16,33 +16,43 @@
 
 import SwiftUI
 
-private let accountTypeOrder: [AccountType] = [
-    .asset,
-    .expense,
-    .income,
-    .liability,
-    .equity,
+enum TransactionFilter {
+    case all
+    case debit
+    case credit
+}
+
+private let allFilterValues: [TransactionFilter] = [
+    .all,
+    .debit,
+    .credit,
 ]
 
-struct AccountTypePicker: View {
-    let title: String
-    @Binding var selection: AccountType
+struct TransactionFilterView: View {
+    @Binding var selection: TransactionFilter
 
     var body: some View {
-        Picker(title, selection: $selection) {
-            ForEach(accountTypeOrder, id: \.self) { type in
-                Text(TextFormatter.formatAccountType(type)).tag(type)
+        Picker("", selection: $selection) {
+            ForEach(allFilterValues, id: \.self) { filter in
+                self.getFilterTitle(filter).tag(filter)
             }
+        }.pickerStyle(SegmentedPickerStyle())
+    }
+
+    func getFilterTitle(_ filter: TransactionFilter) -> some View {
+        switch filter {
+        case .all:
+            return Text("All")
+        case .debit:
+            return Text("Debit")
+        case .credit:
+            return Text("Credit")
         }
     }
 }
 
-struct AccountTypePicker_Previews: PreviewProvider {
+struct TransactionFilterView_Previews: PreviewProvider {
     static var previews: some View {
-        List {
-            Section(header: Text("DEMO")) {
-                AccountTypePicker(title: "Account type", selection: .constant(.asset))
-            }
-        }.listStyle(GroupedListStyle())
+        TransactionFilterView(selection: .constant(.all))
     }
 }

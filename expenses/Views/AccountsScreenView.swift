@@ -33,16 +33,13 @@ struct AccountsScreenView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Picker("", selection: self.$model.selectedType) {
-                ForEach(accountTypeOrder, id: \.self) { type in
-                    Text(TextFormatter.formatAccountType(type)).tag(type)
-                }
-            }.pickerStyle(SegmentedPickerStyle())
+            AccountTypePicker(title: "", selection: self.$model.selectedType)
+                .pickerStyle(SegmentedPickerStyle())
                 .padding(.top, 16)
                 .padding(.horizontal, 16)
             List {
                 ForEach(self.model.getSelectedAccounts(), id: \.id) { account in
-                    AccountRowView(account: account)
+                    AccountRowView(account: account, accounts: self.model.accounts)
                         .deleteDisabled(account.isDefault)
                 }
                 .onDelete(perform: model.deleteAccounts)
@@ -87,6 +84,8 @@ struct AccountsScreenView: View {
                 action: self.model.startAddingAccount,
                 label: {
                     Image(systemName: "plus")
+                        .padding(
+                            EdgeInsets(top: 8, leading: 24, bottom: 8, trailing: 0))
                 }
             ).sheet(
                 isPresented: $model.isAddingAccount,

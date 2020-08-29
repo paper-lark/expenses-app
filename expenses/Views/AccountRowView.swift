@@ -19,9 +19,12 @@ import SwiftUI
 
 struct AccountRowView: View {
     let account: AccountModel
+    let accounts: [AccountModel]
 
     var body: some View {
-        NavigationLink(destination: AccountView(account: account)) {
+        NavigationLink(
+            destination: AccountView(account: account, accounts: accounts)
+        ) {
             HStack(alignment: .firstTextBaseline) {
                 Text(account.title)
                 Spacer()
@@ -36,16 +39,21 @@ struct AccountRowView: View {
 
 struct AccountRowView_Previews: PreviewProvider {
     static var previews: some View {
+        let accounts = [
+            AccountModel(
+                id: UUID(),
+                title: "Credit card",
+                type: .asset,
+                transactions: [],
+                isDefault: false
+            )
+        ]
         return NavigationView {
             List {
                 AccountRowView(
-                    account: AccountModel(
-                        id: UUID(),
-                        title: "Credit card",
-                        type: .asset,
-                        transactions: [],
-                        isDefault: false
-                    ))
+                    account: accounts[0],
+                    accounts: accounts
+                )
             }
         }
     }

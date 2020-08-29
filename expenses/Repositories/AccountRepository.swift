@@ -48,16 +48,20 @@ class AccountRepository {
     @discardableResult
     func fetchDefaultEquityAccount() -> AccountModel {
         guard let account = fetchAccount(byID: AccountRepository.defaultEquityID) else {
-            let newAccount = AccountModel(
-                id: AccountRepository.defaultEquityID,
-                title: "Balancing account",
-                type: .equity,
-                transactions: [],
-                isDefault: true
-            )
-            try? moc.save()
-
-            return newAccount
+            do {
+                let newAccount = AccountModel(
+                    id: AccountRepository.defaultEquityID,
+                    title: "Balancing account",
+                    type: .equity,
+                    transactions: [],
+                    isDefault: true
+                )
+                addAccount(newAccount)
+                try moc.save()
+                return newAccount
+            } catch let error {
+                fatalError("Failed to create default equity account: \(error)")
+            }
         }
         return account
     }
@@ -77,7 +81,20 @@ class AccountRepository {
     }
 
     func removeAll() {
-        removeAccounts(byIDs: fetchAccounts().map { $0.id })
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(
+            entityName: Account.entity().name ?? "")
+        fetchRequest.returnsObjectsAsFaults = false
+        do {
+            let results = try moc.fetch(fetchRequest)
+            for object in results {
+                if let objectData = object as? NSManagedObject {
+                    moc.delete(objectData)
+                }
+            }
+            try moc.save()
+        } catch let error {
+            fatalError("Failed to delete all accounts: \(error)")
+        }
     }
 
     private func getAccountModels(byIDs ids: [UUID]) -> [Account] {

@@ -19,27 +19,80 @@ import SwiftUI
 
 struct AccountHistoryView: View {
     let account: AccountModel
+    let accounts: [AccountModel]
+    @State var filter: TransactionFilter = .all
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text("Transaction history")
                 .font(.system(size: 22, weight: .semibold))
-            // TODO: add transaction grid
+            TransactionFilterView(selection: $filter)
+            List {
+                ForEach(getTransactions(), id: \.id) {
+                    TransactionRowView(
+                        account: self.account,
+                        transaction: $0,
+                        accounts: self.accounts
+                    )
+                    .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+                }
+                // TODO: allow to remove
+            }
+        }
+    }
+
+    private func getTransactions() -> [TransactionModel] {
+        switch filter {
+        case .all:
+            return account.transactions
+        case .credit:
+            return account.credit
+        case .debit:
+            return account.debit
         }
     }
 }
 
 struct AccountHistoryView_Previews: PreviewProvider {
-    static let moc = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
-
     static var previews: some View {
-        return AccountHistoryView(
-            account: AccountModel(
+        let firstAccountID = UUID()
+        let secondAccountID = UUID()
+        let transactions = [
+            TransactionModel(
                 id: UUID(),
-                title: "Credit card",
+                created: Date(),
+                amount: 1000,
+                debitAccountID: firstAccountID,
+                creditAccountID: secondAccountID
+            ),
+            TransactionModel(
+                id: UUID(),
+                created: Date(),
+                amount: 500,
+                debitAccountID: secondAccountID,
+                creditAccountID: firstAccountID
+            ),
+        ]
+        let accounts = [
+            AccountModel(
+                id: firstAccountID,
+                title: "Cash",
                 type: .asset,
-                transactions: [],
+                transactions: transactions,
                 isDefault: false
-            ))
+            ),
+            AccountModel(
+                id: secondAccountID,
+                title: "Salary",
+                type: .income,
+                transactions: transactions,
+                isDefault: false
+            ),
+        ]
+
+        return AccountHistoryView(
+            account: accounts[0],
+            accounts: accounts
+        )
     }
 }
