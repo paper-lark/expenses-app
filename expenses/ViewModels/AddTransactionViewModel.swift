@@ -23,6 +23,7 @@ class AddTransactionViewModel: ObservableObject {
     @Published var creditAccountID: UUID
     @Published var debitAccountID: UUID
     @Published var amount: String = ""
+    private let tests: [TestViewModel]
 
     init(
         context moc: NSManagedObjectContext,
@@ -34,6 +35,7 @@ class AddTransactionViewModel: ObservableObject {
         self.accounts = accounts
         self.creditAccountID = creditAccountID ?? UUID()
         self.debitAccountID = debitAccountID ?? UUID()
+        tests = [TestViewModel(context: moc), TestViewModel(context: moc)]
     }
 
     func hasEmptyFields() -> Bool {

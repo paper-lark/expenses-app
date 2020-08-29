@@ -33,11 +33,11 @@ class AccountRepository {
     func fetchAccounts() -> [AccountModel] {
         let req = NSFetchRequest<Account>(entityName: Account.entity().name ?? "")
         let accounts = try? moc.fetch(req)
-        return (accounts ?? []).map(self.mapAccount)
+        return (accounts ?? []).map { $0.toModel() }
     }
 
     func fetchAccounts(byIDs ids: [UUID]) -> [AccountModel] {
-        return getAccountModels(byIDs: ids).map(self.mapAccount)
+        return getAccountModels(byIDs: ids).map { $0.toModel() }
     }
 
     func fetchAccount(byID id: UUID) -> AccountModel? {
@@ -106,46 +106,5 @@ class AccountRepository {
         )
         let result = try? moc.fetch(req)
         return result ?? []
-    }
-
-    private func mapAccount(_ a: Account) -> AccountModel {
-        let transactions = (a.debitTransactions as? Set<Transaction> ?? []).union(
-            a.creditTransactions as? Set<Transaction> ?? []
-        ).map(self.mapTransaction).sorted {
-            $0.created > $1.created
-        }
-
-        guard let id = a.value(forKey: "id") as? UUID,
-            let title = a.title,
-            let type = AccountType(rawValue: a.typeValue)
-        else {
-            fatalError("Failed to map account")
-        }
-
-        return AccountModel(
-            id: id,
-            title: title,
-            type: type,
-            transactions: transactions,
-            isDefault: a.isDefault
-        )
-    }
-
-    private func mapTransaction(transaction t: Transaction) -> TransactionModel {
-        guard let id = t.value(forKey: "id") as? UUID,
-            let created = t.ts,
-            let debitAccountID = t.debitAccount?.id,
-            let creditAccountID = t.creditAccount?.id
-        else {
-            fatalError("Failed to map transaction")
-        }
-
-        return TransactionModel(
-            id: id,
-            created: created,
-            amount: t.amount,
-            debitAccountID: debitAccountID,
-            creditAccountID: creditAccountID
-        )
     }
 }

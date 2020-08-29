@@ -40,6 +40,9 @@
 		B47E5BF724FA9F7600946093 /* AccountRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47E5BEF24FA956200946093 /* AccountRepository.swift */; };
 		B47E5BF924FAC1AC00946093 /* TransactionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47E5BF824FAC1AC00946093 /* TransactionRowView.swift */; };
 		B47E5BFB24FAD10F00946093 /* TransactionFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47E5BFA24FAD10F00946093 /* TransactionFilterView.swift */; };
+		B47E5BFD24FAF77900946093 /* CoreDataPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47E5BFC24FAF77900946093 /* CoreDataPublisher.swift */; };
+		B47E5BFF24FB03FC00946093 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47E5BFE24FB03FC00946093 /* Models.swift */; };
+		B47E5C0124FB05D600946093 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47E5C0024FB05D600946093 /* TestViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +102,9 @@
 		B47E5BF524FA9C9800946093 /* TransactionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepository.swift; sourceTree = "<group>"; };
 		B47E5BF824FAC1AC00946093 /* TransactionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TransactionRowView.swift; path = expenses/views/TransactionRowView.swift; sourceTree = SOURCE_ROOT; };
 		B47E5BFA24FAD10F00946093 /* TransactionFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TransactionFilterView.swift; path = expenses/views/TransactionFilterView.swift; sourceTree = SOURCE_ROOT; };
+		B47E5BFC24FAF77900946093 /* CoreDataPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPublisher.swift; sourceTree = "<group>"; };
+		B47E5BFE24FB03FC00946093 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		B47E5C0024FB05D600946093 /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +240,7 @@
 		B408BA4124B257A40047E792 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B47E5BFC24FAF77900946093 /* CoreDataPublisher.swift */,
 				B408BA2024B222B80047E792 /* AppSettings.swift */,
 			);
 			path = Services;
@@ -245,6 +252,7 @@
 				B408BA4524BB54F60047E792 /* AddAccountViewModel.swift */,
 				B408BA6124BB66780047E792 /* AccountsScreenViewModel.swift */,
 				B42E634424FA624F00663B79 /* AddTransactionViewModel.swift */,
+				B47E5C0024FB05D600946093 /* TestViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -252,6 +260,7 @@
 		B47E5BEE24FA953C00946093 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				B47E5BFE24FB03FC00946093 /* Models.swift */,
 				B408BA4224B257BB0047E792 /* RepositoryController.swift */,
 				B47E5BEF24FA956200946093 /* AccountRepository.swift */,
 				B47E5BF524FA9C9800946093 /* TransactionRepository.swift */,
@@ -440,6 +449,8 @@
 				B47E5BF024FA956200946093 /* AccountRepository.swift in Sources */,
 				B408B9E324B219540047E792 /* AppDelegate.swift in Sources */,
 				B408BA5124BB60DB0047E792 /* AccountDetailsView.swift in Sources */,
+				B47E5BFD24FAF77900946093 /* CoreDataPublisher.swift in Sources */,
+				B47E5C0124FB05D600946093 /* TestViewModel.swift in Sources */,
 				B408BA3824B230CA0047E792 /* AccountView.swift in Sources */,
 				B42E634724FA6C2300663B79 /* AccountPicker.swift in Sources */,
 				B408BA3C24B236CD0047E792 /* Color.swift in Sources */,
@@ -454,6 +465,7 @@
 				B408BA6224BB66780047E792 /* AccountsScreenViewModel.swift in Sources */,
 				B408BA2124B222B80047E792 /* AppSettings.swift in Sources */,
 				B408BA3A24B235730047E792 /* CardView.swift in Sources */,
+				B47E5BFF24FB03FC00946093 /* Models.swift in Sources */,
 				B408BA4324B257BB0047E792 /* RepositoryController.swift in Sources */,
 				B408B9E524B219540047E792 /* SceneDelegate.swift in Sources */,
 			);
