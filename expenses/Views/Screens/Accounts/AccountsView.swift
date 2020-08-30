@@ -17,10 +17,10 @@
 import CoreData
 import SwiftUI
 
-struct AccountsScreenView: View {
-    @ObservedObject var model: AccountsScreenViewModel
+struct AccountsView: View {
+    @ObservedObject var model: AccountsViewModel
 
-    init(model: AccountsScreenViewModel) {
+    init(model: AccountsViewModel) {
         self.model = model
 
         // remove extra separators below the list
@@ -39,7 +39,7 @@ struct AccountsScreenView: View {
                 .padding(.horizontal, 16)
             List {
                 ForEach(self.model.getSelectedAccounts(), id: \.id) { account in
-                    AccountRowView(account: account, accounts: self.model.accounts)
+                    AccountRowView(account: account)
                         .deleteDisabled(account.isDefault)
                 }
                 .onDelete(perform: model.deleteAccounts)
@@ -60,7 +60,7 @@ struct AccountsScreenView: View {
             Spacer()
 
             Button(
-                action: self.model.startAddingTransaction,
+                action: self.model.addTransaction,
                 label: {
                     HStack(alignment: .lastTextBaseline) {
                         Image(systemName: "plus.circle")
@@ -81,7 +81,7 @@ struct AccountsScreenView: View {
         .navigationBarItems(
             leading: EditButton(),
             trailing: Button(
-                action: self.model.startAddingAccount,
+                action: self.model.addAccount,
                 label: {
                     Image(systemName: "plus")
                         .padding(
@@ -97,15 +97,15 @@ struct AccountsScreenView: View {
     }
 }
 
-struct AccountsScreenView_Previews: PreviewProvider {
+struct AccountsView_Previews: PreviewProvider {
     static var previews: some View {
         let moc = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
-        let model = AccountsScreenViewModel(
+        let model = AccountsViewModel(
             context: moc
         )
 
         return NavigationView {
-            AccountsScreenView(model: model)
+            AccountsView(model: model)
         }
     }
 }

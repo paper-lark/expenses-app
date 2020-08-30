@@ -17,6 +17,7 @@
 import CoreData
 import Foundation
 
+// FIXME: rename all repositories to services
 class AccountRepository {
     private let moc: NSManagedObjectContext
     static let defaultEquityID: UUID = {
@@ -72,6 +73,15 @@ class AccountRepository {
         a.title = model.title
         a.typeValue = model.type.rawValue
         a.isDefault = model.isDefault
+    }
+
+    func updateAccount(withID id: UUID, setTitle title: String, setType type: AccountType) {
+        guard let account = getAccountModels(byIDs: [id]).first else {
+            // TODO: display error
+            return
+        }
+        account.title = title
+        account.typeValue = type.rawValue
     }
 
     func removeAccounts(byIDs ids: [UUID]) {

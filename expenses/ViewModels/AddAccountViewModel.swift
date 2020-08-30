@@ -29,9 +29,14 @@ class AddAccountViewModel: ObservableObject {
         initialAccountType: AccountType,
         equityAccount: AccountModel
     ) {
+        print("AddAccountViewModel created")
         self.moc = moc
         self.type = initialAccountType
         self.equityAccount = equityAccount
+    }
+
+    deinit {
+        print("AddAccountViewModel disposed")
     }
 
     func isBalanceValid() -> Bool {

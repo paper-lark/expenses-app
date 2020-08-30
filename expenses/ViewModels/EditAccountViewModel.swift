@@ -14,20 +14,30 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import SwiftUI
+import Combine
+import CoreData
+import Foundation
 
-struct ContentView: View {
-    @Environment(\.managedObjectContext) var moc
-    var body: some View {
-        NavigationView {
-            AccountsScreenView(model: AccountsScreenViewModel(context: moc))
-            // TODO: add other tabs
-        }
+// FIXME: attach to view and show view
+class EditAccountViewModel: ObservableObject {
+    private let moc: NSManagedObjectContext
+    private let model: AccountModel
+    @Published var title: String
+    @Published var type: AccountType
+
+    init(context: NSManagedObjectContext, account: AccountModel) {
+        moc = context
+        model = account
+        type = account.type
+        title = account.title
     }
-}
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+    func canDelete() -> Bool {
+        return !model.isDefault
+    }
+
+    func update() {
+        let repo = AccountRepository(context: moc)
+        repo.updateAccount(withID: model.id, setTitle: model.title, setType: model.type)
     }
 }

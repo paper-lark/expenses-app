@@ -14,41 +14,44 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+import Combine
 import CoreData
 import SwiftUI
 
-class AccountsScreenViewModel: ObservableObject {
-    let moc: NSManagedObjectContext
-    @Published var selectedType = AccountType.asset  // TODO: take from app state
-    @Published var isAddingAccount = false {
-        didSet {
-            if !isAddingAccount {
-                fetchAccounts()
-            }
-        }
-    }
-    @Published var isAddingTransaction = false {
-        didSet {
-            if !isAddingTransaction {
-                fetchAccounts()
-            }
-        }
-    }
-    @Published var accounts: [AccountModel]
+class AccountsViewModel: ObservableObject {
+    private let moc: NSManagedObjectContext
+    private var cancellables = [AnyCancellable]()
+    @Published var selectedType = AccountType.asset
+    @Published var isAddingAccount = false
+    @Published var isAddingTransaction = false
+    @Published var accounts: [AccountModel] = []
     @Published private(set) var accountIDsToDelete: [UUID] = []
     @Published var isDeletingAccounts: Bool = false
 
     init(context: NSManagedObjectContext) {
+        print("AccountsScreenViewModel created")
         moc = context
-        accounts = []
-        fetchAccounts()
+        CoreDataPublisher<Account>(context: context)
+            .map { $0.map { $0.toModel() } }
+            .receive(on: DispatchQueue.main)
+            .sink(
+                receiveCompletion: { _ in },
+                receiveValue: { [weak self] accounts in
+                    self?.accounts = accounts
+                }
+            )
+            .store(in: &cancellables)
     }
 
-    func startAddingAccount() {
+    deinit {
+        print("AccountsScreenViewModel disposed")
+    }
+
+    func addAccount() {
         isAddingAccount = true
     }
 
-    func startAddingTransaction() {
+    func addTransaction() {
         isAddingTransaction = true
     }
 
@@ -67,7 +70,6 @@ class AccountsScreenViewModel: ObservableObject {
             let repo = AccountRepository(context: moc)
             repo.removeAccounts(byIDs: accountIDsToDelete)
             try? moc.save()
-            fetchAccounts()
         }
     }
 

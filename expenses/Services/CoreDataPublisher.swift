@@ -58,12 +58,13 @@ class CoreDataPublisher<Entity: NSManagedObject>: NSObject, Publisher,
     private let subject: CurrentValueSubject<[Entity], Failure>
     private var controller: NSFetchedResultsController<Entity>
 
-    init(context: NSManagedObjectContext) {
+    init(context: NSManagedObjectContext, request: NSFetchRequest<Entity>) {
+        if request.sortDescriptors == nil {
+            request.sortDescriptors = []
+        }
         moc = context
-        let req = NSFetchRequest<Entity>.init(entityName: Entity.entity().name ?? "")
-        req.sortDescriptors = []
         controller = NSFetchedResultsController<Entity>(
-            fetchRequest: req,
+            fetchRequest: request,
             managedObjectContext: moc,
             sectionNameKeyPath: nil,
             cacheName: nil
@@ -71,6 +72,12 @@ class CoreDataPublisher<Entity: NSManagedObject>: NSObject, Publisher,
         subject = CurrentValueSubject([])
         super.init()
         controller.delegate = self
+    }
+
+    convenience init(context: NSManagedObjectContext) {
+        self.init(
+            context: context,
+            request: NSFetchRequest<Entity>.init(entityName: Entity.entity().name ?? ""))
     }
 
     func receive<S>(subscriber: S) where S: Subscriber, Failure == S.Failure, Output == S.Input {
@@ -88,8 +95,9 @@ class CoreDataPublisher<Entity: NSManagedObject>: NSObject, Publisher,
         Inner(fetchPublisher: self, subscriber: AnySubscriber(subscriber))
     }
 
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>)
-    {
+    func controllerDidChangeContent(
+        _ controller: NSFetchedResultsController<NSFetchRequestResult>
+    ) {
         guard let result = controller.fetchedObjects as? [Entity] else {
             subject.send(completion: .failure(.badResponse))
             return

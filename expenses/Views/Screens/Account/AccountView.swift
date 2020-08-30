@@ -19,33 +19,35 @@ import SwiftUI
 
 struct AccountView: View {
     // TODO: use a separate view model
-    let account: AccountModel
-    let accounts: [AccountModel]
+    @ObservedObject var model: AccountViewModel
+    @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
-        ZStack(alignment: .topLeading) {
+        if model.shouldDismissView {
+            presentationMode.wrappedValue.dismiss()
+        }
+
+        return ZStack(alignment: .topLeading) {
             Rectangle()
                 .foregroundColor(Color.secondarySystemBackground)
                 .edgesIgnoringSafeArea(Edge.Set.all)
             VStack(alignment: .leading, spacing: 16) {
                 CardView {
-                    AccountDetailsView(account: self.account)
+                    AccountDetailsView(account: self.model.account)
                 }
                 CardView {
                     AccountHistoryView(
-                        account: self.account,
-                        accounts: self.accounts
+                        account: self.model.account,
+                        accounts: self.model.accounts
                     )
                 }
             }
             .padding(.top, 24)
         }
-        .navigationBarTitle(Text(account.title), displayMode: .inline)
+        .navigationBarTitle(Text(model.account.title), displayMode: .inline)
         .navigationBarItems(
             trailing: Button(
-                action: {
-                    // TODO: add edit view
-                },
+                action: model.editAccount,
                 label: {
                     Image(systemName: "square.and.pencil")
                 }))
@@ -54,20 +56,19 @@ struct AccountView: View {
 
 struct AccountView_Previews: PreviewProvider {
     static var previews: some View {
-        let accounts = [
-            AccountModel(
-                id: UUID(),
-                title: "Credit card",
-                type: .asset,
-                transactions: [],
-                isDefault: false
-            )
-        ]
+        let moc = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+        let account = AccountModel(
+            id: UUID(),
+            title: "Credit card",
+            type: .asset,
+            transactions: [],
+            isDefault: false
+        )
+        let acc = Account(context: moc)
+        acc.id = account.id
+        let model = AccountViewModel(context: moc, account: account)
         return NavigationView {
-            AccountView(
-                account: accounts[0],
-                accounts: accounts
-            )
+            AccountView(model: model)
         }
     }
 }
