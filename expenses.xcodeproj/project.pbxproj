@@ -63,7 +63,7 @@
 		B408B9DF24B219540047E792 /* Expenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expenses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B408B9E224B219540047E792 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B408B9E424B219540047E792 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B408B9E724B219540047E792 /* expenses.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = expenses.xcdatamodel; sourceTree = "<group>"; };
+		B408B9E724B219540047E792 /* expenses.xcdatamodel */ = {isa = PBXFileReference; explicitFileType = wrapper.xcdatamodel; path = expenses.xcdatamodel; sourceTree = "<group>"; };
 		B408B9E924B219540047E792 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B408B9EB24B2195B0047E792 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B408B9EE24B2195B0047E792 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -99,6 +99,7 @@
 		B47E5BF524FA9C9800946093 /* TransactionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepository.swift; sourceTree = "<group>"; };
 		B47E5BF824FAC1AC00946093 /* TransactionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TransactionRowView.swift; path = expenses/views/TransactionRowView.swift; sourceTree = SOURCE_ROOT; };
 		B47E5BFA24FAD10F00946093 /* TransactionFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TransactionFilterView.swift; path = expenses/views/TransactionFilterView.swift; sourceTree = SOURCE_ROOT; };
+		B4BD8971290D56430094D2C4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +134,7 @@
 				B408B9FB24B2195B0047E792 /* expensesTests */,
 				B408BA0624B2195C0047E792 /* expensesUITests */,
 				B408B9E024B219540047E792 /* Products */,
+				B4BD8970290D56430094D2C4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -257,6 +259,14 @@
 				B47E5BF524FA9C9800946093 /* TransactionRepository.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		B4BD8970290D56430094D2C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B4BD8971290D56430094D2C4 /* CoreData.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -627,7 +637,9 @@
 				DEVELOPMENT_TEAM = R7GX9454SD;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = expenses/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				INFOPLIST_KEY_CFBundleDisplayName = Expenses;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -650,7 +662,9 @@
 				DEVELOPMENT_TEAM = R7GX9454SD;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = expenses/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				INFOPLIST_KEY_CFBundleDisplayName = Expenses;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

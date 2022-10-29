@@ -28,15 +28,15 @@ class TransactionRepository {
         let req = NSFetchRequest<Account>(entityName: Account.entity().name ?? "")
         req.predicate = NSPredicate(
             format: "%K in %@",
-            #keyPath(Account.id),
+            #keyPath(Account.uid),
             [model.creditAccountID, model.debitAccountID] as CVarArg
         )
         let accounts = try? moc.fetch(req)
-        let creditAccount = accounts?.first(where: { $0.id == model.creditAccountID })
-        let debitAccount = accounts?.first(where: { $0.id == model.debitAccountID })
+        let creditAccount = accounts?.first(where: { $0.uid == model.creditAccountID })
+        let debitAccount = accounts?.first(where: { $0.uid == model.debitAccountID })
 
         let t = Transaction(context: moc)
-        t.id = model.id
+        t.uid = model.id
         t.amount = model.amount
         t.ts = model.created
         t.creditAccount = creditAccount

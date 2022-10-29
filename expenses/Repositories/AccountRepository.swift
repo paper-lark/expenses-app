@@ -68,7 +68,7 @@ class AccountRepository {
 
     func addAccount(_ model: AccountModel) {
         let a = Account(context: moc)
-        a.id = model.id
+        a.uid = model.id
         a.title = model.title
         a.typeValue = model.type.rawValue
         a.isDefault = model.isDefault
@@ -101,7 +101,7 @@ class AccountRepository {
         let req = NSFetchRequest<Account>(entityName: Account.entity().name ?? "")
         req.predicate = NSPredicate(
             format: "%K IN %@",
-            #keyPath(Account.id),
+            #keyPath(Account.uid),
             ids as CVarArg
         )
         let result = try? moc.fetch(req)
@@ -115,7 +115,7 @@ class AccountRepository {
             $0.created > $1.created
         }
 
-        guard let id = a.value(forKey: "id") as? UUID,
+        guard let id = a.value(forKey: "uid") as? UUID,
             let title = a.title,
             let type = AccountType(rawValue: a.typeValue)
         else {
@@ -132,10 +132,10 @@ class AccountRepository {
     }
 
     private func mapTransaction(transaction t: Transaction) -> TransactionModel {
-        guard let id = t.value(forKey: "id") as? UUID,
+        guard let id = t.value(forKey: "uid") as? UUID,
             let created = t.ts,
-            let debitAccountID = t.debitAccount?.id,
-            let creditAccountID = t.creditAccount?.id
+            let debitAccountID = t.debitAccount?.uid,
+            let creditAccountID = t.creditAccount?.uid
         else {
             fatalError("Failed to map transaction")
         }
