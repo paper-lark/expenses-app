@@ -56,7 +56,7 @@ struct AccountsScreenView: View {
                             secondaryButton: .default(Text("Cancel"))
                         )
                     })
-            }
+            }.listStyle(.plain)
             Spacer()
 
             Button(
