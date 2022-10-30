@@ -88,28 +88,11 @@ struct AddTransactionView_Previews: PreviewProvider {
     static let moc = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
 
     static var previews: some View {
-        let accounts = [
-            AccountModel(
-                id: UUID(),
-                title: "Cash",
-                type: .asset,
-                transactions: [],
-                isDefault: false
-            ),
-            AccountModel(
-                id: UUID(),
-                title: "Salary",
-                type: .income,
-                transactions: [],
-                isDefault: false
-            ),
-        ]
-
         let model = AddTransactionViewModel(
             context: moc,
-            accounts: accounts,
-            creditAccountID: accounts[1].id,
-            debitAccountID: accounts[0].id
+            accounts: AccountTestData.accounts,
+            creditAccountID: AccountTestData.assetsAccountId,
+            debitAccountID: AccountTestData.expenseAccountId
         )
         return AddTransactionView(model: model)
     }

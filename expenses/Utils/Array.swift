@@ -14,28 +14,16 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import CoreData
-import SwiftUI
+import Foundation
 
-struct AccountDetailsView: View {
-    let account: AccountModel
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text("\(TextFormatter.formatAccountType(account.type)) balance")
-                .font(.system(size: 22, weight: .semibold))
-            Text(
-                TextFormatter.formatAmount(account.balance, currency: AppSettings.getCurrency())
-            )
-            .font(.largeTitle)
-            .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
+extension Array where Element: Equatable {
+    mutating func removeDuplicates() {
+        var result = [Element]()
+        for value in self {
+            if !result.contains(value) {
+                result.append(value)
+            }
         }
-    }
-}
-
-struct AccountOverviewView_Previews: PreviewProvider {
-    static var previews: some View {
-        return AccountDetailsView(
-            account: AccountTestData.assetAccount)
+        self = result
     }
 }

@@ -39,20 +39,11 @@ struct AccountRowView: View {
 
 struct AccountRowView_Previews: PreviewProvider {
     static var previews: some View {
-        let accounts = [
-            AccountModel(
-                id: UUID(),
-                title: "Credit card",
-                type: .asset,
-                transactions: [],
-                isDefault: false
-            )
-        ]
         return NavigationView {
             List {
                 AccountRowView(
-                    account: accounts[0],
-                    accounts: accounts
+                    account: AccountTestData.assetAccount,
+                    accounts: AccountTestData.accounts
                 )
             }
         }

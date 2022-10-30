@@ -33,11 +33,11 @@ class AccountRepository {
     func fetchAccounts() -> [AccountModel] {
         let req = NSFetchRequest<Account>(entityName: Account.entity().name ?? "")
         let accounts = try? moc.fetch(req)
-        return (accounts ?? []).map(self.mapAccount)
+        return (accounts ?? []).map(AccountRepository.mapAccount)
     }
 
     func fetchAccounts(byIDs ids: [UUID]) -> [AccountModel] {
-        return getAccountModels(byIDs: ids).map(self.mapAccount)
+        return getAccountModels(byIDs: ids).map(AccountRepository.mapAccount)
     }
 
     func fetchAccount(byID id: UUID) -> AccountModel? {
@@ -108,10 +108,10 @@ class AccountRepository {
         return result ?? []
     }
 
-    private func mapAccount(_ a: Account) -> AccountModel {
+    static func mapAccount(_ a: Account) -> AccountModel {
         let transactions = (a.debitTransactions as? Set<Transaction> ?? []).union(
             a.creditTransactions as? Set<Transaction> ?? []
-        ).map(self.mapTransaction).sorted {
+        ).map(TransactionRepository.mapTransaction).sorted {
             $0.created > $1.created
         }
 
@@ -128,24 +128,6 @@ class AccountRepository {
             type: type,
             transactions: transactions,
             isDefault: a.isDefault
-        )
-    }
-
-    private func mapTransaction(transaction t: Transaction) -> TransactionModel {
-        guard let id = t.value(forKey: "uid") as? UUID,
-            let created = t.ts,
-            let debitAccountID = t.debitAccount?.uid,
-            let creditAccountID = t.creditAccount?.uid
-        else {
-            fatalError("Failed to map transaction")
-        }
-
-        return TransactionModel(
-            id: id,
-            created: created,
-            amount: t.amount,
-            debitAccountID: debitAccountID,
-            creditAccountID: creditAccountID
         )
     }
 }

@@ -35,20 +35,11 @@ struct AccountPicker_Previews: PreviewProvider {
     @State static var id = UUID()
 
     static var previews: some View {
-        let accounts = [
-            AccountModel(
-                id: id,
-                title: "Cash",
-                type: .asset,
-                transactions: [],
-                isDefault: false
-            )
-        ]
         return List {
             Section(header: Text("DEMO")) {
                 AccountPicker(
                     title: "Account",
-                    accounts: accounts,
+                    accounts: AccountTestData.accounts,
                     accountID: $id
                 )
             }

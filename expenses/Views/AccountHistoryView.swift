@@ -23,10 +23,13 @@ struct AccountHistoryView: View {
     @State var filter: TransactionFilter = .all
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text("Transaction history")
+        VStack(alignment: .leading, spacing: 24) {
+            Text("History")
                 .font(.system(size: 22, weight: .semibold))
+
             TransactionFilterView(selection: $filter)
+            TransactionHistoryChart(history: getHistory())
+
             List {
                 ForEach(getTransactions(), id: \.id) {
                     TransactionRowView(
@@ -51,48 +54,29 @@ struct AccountHistoryView: View {
             return account.debit
         }
     }
+
+    private func getHistory() -> [(Date, Int64)] {
+        let dict = Dictionary(
+            grouping: getTransactions(),
+            by: { $0.created.getDay() }
+        ).mapValues {
+            return $0.reduce(Int64(0)) {
+                if $1.debitAccountID == account.id {
+                    return $0 + $1.amount
+                } else {
+                    return $0 - $1.amount
+                }
+            }
+        }
+        return dict.sorted(by: { $0.key < $1.key })
+    }
 }
 
 struct AccountHistoryView_Previews: PreviewProvider {
     static var previews: some View {
-        let firstAccountID = UUID()
-        let secondAccountID = UUID()
-        let transactions = [
-            TransactionModel(
-                id: UUID(),
-                created: Date(),
-                amount: 1000,
-                debitAccountID: firstAccountID,
-                creditAccountID: secondAccountID
-            ),
-            TransactionModel(
-                id: UUID(),
-                created: Date(),
-                amount: 500,
-                debitAccountID: secondAccountID,
-                creditAccountID: firstAccountID
-            ),
-        ]
-        let accounts = [
-            AccountModel(
-                id: firstAccountID,
-                title: "Cash",
-                type: .asset,
-                transactions: transactions,
-                isDefault: false
-            ),
-            AccountModel(
-                id: secondAccountID,
-                title: "Salary",
-                type: .income,
-                transactions: transactions,
-                isDefault: false
-            ),
-        ]
-
         return AccountHistoryView(
-            account: accounts[0],
-            accounts: accounts
+            account: AccountTestData.assetAccount,
+            accounts: AccountTestData.accounts
         )
     }
 }

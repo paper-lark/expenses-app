@@ -64,44 +64,28 @@ struct TransactionRowView: View {
 
 struct TransactionRowView_Previews: PreviewProvider {
     static var previews: some View {
-        let accounts = [
-            AccountModel(
-                id: UUID(),
-                title: "Cash",
-                type: .asset,
-                transactions: [],
-                isDefault: false
-            ),
-            AccountModel(
-                id: UUID(),
-                title: "Salary",
-                type: .income,
-                transactions: [],
-                isDefault: false
-            ),
-        ]
         return NavigationView {
             List {
                 TransactionRowView(
-                    account: accounts[0],
+                    account: AccountTestData.assetAccount,
                     transaction: TransactionModel(
                         id: UUID(),
                         created: Date(),
                         amount: 1000,
-                        debitAccountID: accounts[0].id,
-                        creditAccountID: accounts[1].id
-                    ), accounts: accounts
+                        debitAccountID: AccountTestData.assetsAccountId,
+                        creditAccountID: AccountTestData.expenseAccountId
+                    ), accounts: AccountTestData.accounts
                 )
                 TransactionRowView(
-                    account: accounts[0],
+                    account: AccountTestData.assetAccount,
                     transaction: TransactionModel(
                         id: UUID(),
                         created: Date(),
                         amount: 500,
-                        debitAccountID: accounts[1].id,
-                        creditAccountID: accounts[0].id
+                        debitAccountID: AccountTestData.expenseAccountId,
+                        creditAccountID: AccountTestData.assetsAccountId
                     ),
-                    accounts: accounts
+                    accounts: AccountTestData.accounts
                 )
             }
         }

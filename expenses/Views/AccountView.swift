@@ -50,23 +50,15 @@ struct AccountView: View {
                     Image(systemName: "square.and.pencil")
                 }))
     }
+
 }
 
 struct AccountView_Previews: PreviewProvider {
     static var previews: some View {
-        let accounts = [
-            AccountModel(
-                id: UUID(),
-                title: "Credit card",
-                type: .asset,
-                transactions: [],
-                isDefault: false
-            )
-        ]
         return NavigationView {
             AccountView(
-                account: accounts[0],
-                accounts: accounts
+                account: AccountTestData.assetAccount,
+                accounts: AccountTestData.accounts
             )
         }
     }

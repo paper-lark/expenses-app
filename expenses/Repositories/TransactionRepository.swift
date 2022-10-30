@@ -42,4 +42,22 @@ class TransactionRepository {
         t.creditAccount = creditAccount
         t.debitAccount = debitAccount
     }
+
+    static func mapTransaction(transaction t: Transaction) -> TransactionModel {
+        guard let id = t.value(forKey: "uid") as? UUID,
+            let created = t.ts,
+            let debitAccountID = t.debitAccount?.uid,
+            let creditAccountID = t.creditAccount?.uid
+        else {
+            fatalError("Failed to map transaction")
+        }
+
+        return TransactionModel(
+            id: id,
+            created: created,
+            amount: t.amount,
+            debitAccountID: debitAccountID,
+            creditAccountID: creditAccountID
+        )
+    }
 }

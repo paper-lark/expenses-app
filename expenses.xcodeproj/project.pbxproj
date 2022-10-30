@@ -33,6 +33,9 @@
 		B42E634524FA624F00663B79 /* AddTransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E634424FA624F00663B79 /* AddTransactionViewModel.swift */; };
 		B42E634724FA6C2300663B79 /* AccountPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E634624FA6C2300663B79 /* AccountPicker.swift */; };
 		B42E634B24FA78E900663B79 /* AccountTypePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E634A24FA78E900663B79 /* AccountTypePicker.swift */; };
+		B43D14C4290E7B75002B0F37 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43D14C3290E7B75002B0F37 /* Date.swift */; };
+		B43D14C7290E8B40002B0F37 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43D14C6290E8B40002B0F37 /* Account.swift */; };
+		B43D14C9290E9572002B0F37 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43D14C8290E9572002B0F37 /* Array.swift */; };
 		B47E5BF024FA956200946093 /* AccountRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47E5BEF24FA956200946093 /* AccountRepository.swift */; };
 		B47E5BF224FA96BA00946093 /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47E5BF124FA96BA00946093 /* AccountModel.swift */; };
 		B47E5BF424FA978E00946093 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47E5BF324FA978E00946093 /* TransactionModel.swift */; };
@@ -40,6 +43,7 @@
 		B47E5BF724FA9F7600946093 /* AccountRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47E5BEF24FA956200946093 /* AccountRepository.swift */; };
 		B47E5BF924FAC1AC00946093 /* TransactionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47E5BF824FAC1AC00946093 /* TransactionRowView.swift */; };
 		B47E5BFB24FAD10F00946093 /* TransactionFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47E5BFA24FAD10F00946093 /* TransactionFilterView.swift */; };
+		B4D30BE0290DCF8200EF1975 /* TransactionHistoryChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D30BDF290DCF8200EF1975 /* TransactionHistoryChart.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +97,9 @@
 		B42E634424FA624F00663B79 /* AddTransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewModel.swift; sourceTree = "<group>"; };
 		B42E634624FA6C2300663B79 /* AccountPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AccountPicker.swift; path = expenses/views/AccountPicker.swift; sourceTree = SOURCE_ROOT; };
 		B42E634A24FA78E900663B79 /* AccountTypePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AccountTypePicker.swift; path = expenses/views/AccountTypePicker.swift; sourceTree = SOURCE_ROOT; };
+		B43D14C3290E7B75002B0F37 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		B43D14C6290E8B40002B0F37 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		B43D14C8290E9572002B0F37 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		B47E5BEF24FA956200946093 /* AccountRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRepository.swift; sourceTree = "<group>"; };
 		B47E5BF124FA96BA00946093 /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AccountModel.swift; path = expenses/models/AccountModel.swift; sourceTree = SOURCE_ROOT; };
 		B47E5BF324FA978E00946093 /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TransactionModel.swift; path = expenses/models/TransactionModel.swift; sourceTree = SOURCE_ROOT; };
@@ -100,6 +107,7 @@
 		B47E5BF824FAC1AC00946093 /* TransactionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TransactionRowView.swift; path = expenses/views/TransactionRowView.swift; sourceTree = SOURCE_ROOT; };
 		B47E5BFA24FAD10F00946093 /* TransactionFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TransactionFilterView.swift; path = expenses/views/TransactionFilterView.swift; sourceTree = SOURCE_ROOT; };
 		B4BD8971290D56430094D2C4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		B4D30BDF290DCF8200EF1975 /* TransactionHistoryChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHistoryChart.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +159,7 @@
 		B408B9E124B219540047E792 /* expenses */ = {
 			isa = PBXGroup;
 			children = (
+				B43D14C5290E8B2D002B0F37 /* TestData */,
 				B47E5BEE24FA953C00946093 /* Repositories */,
 				B408BA4424BB54D80047E792 /* ViewModels */,
 				B408BA4124B257A40047E792 /* Services */,
@@ -211,6 +220,7 @@
 				B42E634A24FA78E900663B79 /* AccountTypePicker.swift */,
 				B47E5BF824FAC1AC00946093 /* TransactionRowView.swift */,
 				B47E5BFA24FAD10F00946093 /* TransactionFilterView.swift */,
+				B4D30BDF290DCF8200EF1975 /* TransactionHistoryChart.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -229,6 +239,8 @@
 			children = (
 				B408BA3524B22DBC0047E792 /* TextFormatter.swift */,
 				B408BA3B24B236CD0047E792 /* Color.swift */,
+				B43D14C3290E7B75002B0F37 /* Date.swift */,
+				B43D14C8290E9572002B0F37 /* Array.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -249,6 +261,14 @@
 				B42E634424FA624F00663B79 /* AddTransactionViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B43D14C5290E8B2D002B0F37 /* TestData */ = {
+			isa = PBXGroup;
+			children = (
+				B43D14C6290E8B40002B0F37 /* Account.swift */,
+			);
+			path = TestData;
 			sourceTree = "<group>";
 		};
 		B47E5BEE24FA953C00946093 /* Repositories */ = {
@@ -287,6 +307,8 @@
 			dependencies = (
 			);
 			name = expenses;
+			packageProductDependencies = (
+			);
 			productName = expenses;
 			productReference = B408B9DF24B219540047E792 /* Expenses.app */;
 			productType = "com.apple.product-type.application";
@@ -359,6 +381,8 @@
 				Base,
 			);
 			mainGroup = B408B9D624B219540047E792;
+			packageReferences = (
+			);
 			productRefGroup = B408B9E024B219540047E792 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -413,7 +437,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swift-format >/dev/null; then\n    swift-format format -i -r ${PROJECT_DIR}\nelse\n    echo \"WARNING: swift-format is not installed\"\nfi\n";
+			shellScript = "exit 0\n\nif which swift-format >/dev/null; then\n    swift-format format -i -r ${PROJECT_DIR}\nelse\n    echo \"WARNING: swift-format is not installed\"\nfi\n";
 		};
 		B408BA6424BB7EE90047E792 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -444,7 +468,10 @@
 				B408B9E824B219540047E792 /* expenses.xcdatamodeld in Sources */,
 				B42E634324FA621300663B79 /* AddTransactionView.swift in Sources */,
 				B408BA5324BB615B0047E792 /* AccountHistoryView.swift in Sources */,
+				B43D14C7290E8B40002B0F37 /* Account.swift in Sources */,
+				B43D14C4290E7B75002B0F37 /* Date.swift in Sources */,
 				B47E5BF224FA96BA00946093 /* AccountModel.swift in Sources */,
+				B4D30BE0290DCF8200EF1975 /* TransactionHistoryChart.swift in Sources */,
 				B42E634B24FA78E900663B79 /* AccountTypePicker.swift in Sources */,
 				B47E5BF924FAC1AC00946093 /* TransactionRowView.swift in Sources */,
 				B47E5BF024FA956200946093 /* AccountRepository.swift in Sources */,
@@ -466,6 +493,7 @@
 				B408BA3A24B235730047E792 /* CardView.swift in Sources */,
 				B408BA4324B257BB0047E792 /* RepositoryController.swift in Sources */,
 				B408B9E524B219540047E792 /* SceneDelegate.swift in Sources */,
+				B43D14C9290E9572002B0F37 /* Array.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,7 +591,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -617,7 +645,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -639,16 +667,18 @@
 				INFOPLIST_FILE = expenses/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Expenses;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhuravskymax.expenses;
 				PRODUCT_NAME = Expenses;
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
@@ -664,16 +694,18 @@
 				INFOPLIST_FILE = expenses/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Expenses;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhuravskymax.expenses;
 				PRODUCT_NAME = Expenses;
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
 		};

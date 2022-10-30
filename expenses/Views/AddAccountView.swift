@@ -75,13 +75,7 @@ struct AddAccountView_Previews: PreviewProvider {
         let model = AddAccountViewModel(
             context: moc,
             initialAccountType: .asset,
-            equityAccount: AccountModel(
-                id: UUID(),
-                title: "Equity account",
-                type: .equity,
-                transactions: [],
-                isDefault: true
-            )
+            equityAccount: AccountTestData.equityAccount
         )
         return AddAccountView(model: model)
     }
